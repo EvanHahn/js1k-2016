@@ -1,7 +1,12 @@
 /* eslint-disable no-undef */
 
 // style the <body>
-b.style.cssText = 'margin:0;padding:0;background:#262747;overflow:hidden'
+b.style.cssText = 'margin:0;padding:0;background:#262747;overflow:hidden;font-family:sans-serif;font-size:26pt;font-weight:100'
+
+// add a div that tells you to click
+k = b.appendChild(document.createElement('div'))
+k.style.cssText = 'position:fixed;top:0;left:0;width:100%;padding:26px;color:#fff;text-align:center;opacity:1;transition:opacity 3s'
+k.innerHTML = 'click for fireworks!'
 
 // keep track of canvas size
 w = innerWidth
@@ -13,6 +18,8 @@ p = []
 
 // shoots a rocket on click
 b.onclick = function (clickEvent) {
+  k.style.opacity = 0
+
   r.push({
     a: clickEvent.clientX,
     b: clickEvent.clientY,
